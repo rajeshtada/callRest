@@ -4,6 +4,6 @@ git log --graph --reflog
 git log --walk-reflogs
 
 
-
-
+git reflog
+git log --pretty=format:'%h - %gD %s' --source -g
 
