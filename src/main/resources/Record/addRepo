@@ -1,0 +1,19 @@
+#to Add first time repo on git
+
+git init
+git remote add origin https://github.com/rajeshtada/callRest.git
+
+git checkout -b main
+git branch -M main
+
+git status
+git add -A
+git commit -m "initial commit"
+git push origin main
+
+
+
+
+
+
+
