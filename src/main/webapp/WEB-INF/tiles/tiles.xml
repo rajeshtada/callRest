@@ -41,10 +41,10 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/AddBook.jsp" />
 	</definition>
-	<definition name="libraryBook" extends="baseLayout">
+	<definition name="libraryStock" extends="baseLayout">
 		<put-attribute name="title" value="HomePage" />
 		<put-attribute name="body"
-			value="/WEB-INF/jsp/LibraryBook.jsp" />
+			value="/WEB-INF/jsp/LibraryStock.jsp" />
 	</definition>
 	<definition name="downloadDataPage" extends="baseLayout">
 		<put-attribute name="title" value="HomePage" />
@@ -56,4 +56,15 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/TestHtmlPage.jsp" />
 	</definition>
+	<definition name="searchBook" extends="baseLayout">
+		<put-attribute name="title" value="HomePage" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/searchBook.jsp" />			
+	</definition>
+	
 </tiles-definitions>
+
+
+
+
+
