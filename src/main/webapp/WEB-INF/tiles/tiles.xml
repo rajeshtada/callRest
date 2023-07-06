@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+      "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="loginLayout"
+		template="/WEB-INF/tiles/templates/loginLayout.jsp">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="body" value="" />
+	</definition>
+	<definition name="UserLogin" extends="loginLayout">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/UserLogin.jsp" />
+	</definition>
+	<definition name="userRegistration" extends="loginLayout">
+		<put-attribute name="title" value="New User SignUp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/UserRegistration.jsp" />
+	</definition>
+
+	<definition name="baseLayout"
+		template="/WEB-INF/tiles/templates/homeLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/tiles/layout/header.jsp" />
+		<put-attribute name="body" value="" />
+	</definition>
+
+	<!-- <definition name="UserLogin" extends="baseLayout"> <put-attribute name="title" 
+		value="Login" /> <put-attribute name="header" value="" /> <put-attribute 
+		name="body" value="/WEB-INF/jsp/UserLogin.jsp" /> </definition> -->
+
+	<definition name="Home" extends="baseLayout">
+		<put-attribute name="title" value="HomePage" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Home.jsp" />
+	</definition>
+	<definition name="addBook" extends="baseLayout">
+		<put-attribute name="title" value="HomePage" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/AddBook.jsp" />
+	</definition>
+	<definition name="libraryBook" extends="baseLayout">
+		<put-attribute name="title" value="HomePage" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/LibraryBook.jsp" />
+	</definition>
+	<definition name="downloadDataPage" extends="baseLayout">
+		<put-attribute name="title" value="HomePage" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/downloadDataPage.jsp" />
+	</definition>
+	<definition name="testHtmlPage" extends="baseLayout">
+		<put-attribute name="title" value="HomePage" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/TestHtmlPage.jsp" />
+	</definition>
+</tiles-definitions>
