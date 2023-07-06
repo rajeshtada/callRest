@@ -23,7 +23,7 @@ public class BookRestController {
 	BookService bookService;
 
 	@PostMapping("/searchBook")
-	public @ResponseBody List<BookDetailVo> searchBook(@RequestBody BookDetailVo bookRequestVo) {
+	public @ResponseBody BookDetailVo searchBook(@RequestBody BookDetailVo bookRequestVo) {
 
 		BookDetailVo bookResponceVo = new BookDetailVo();
 		List<BookDetailVo> listBookDetailVo = new ArrayList<>();
@@ -38,6 +38,7 @@ public class BookRestController {
 			bookTestVo.setPrice(500L);
 			listBookDetailVo.add(bookTestVo);
 
+			bookResponceVo.setListBookDetailVo(listBookDetailVo);
 			bookResponceVo.setMessage("success");
 			bookResponceVo.setStatus(200);
 
@@ -46,9 +47,9 @@ public class BookRestController {
 			bookResponceVo.setStatus(400);
 		}
 
-		bookResponceVo.setListBookDetailVo(listBookDetailVo);
+		
 
-		return listBookDetailVo;
+		return bookResponceVo;
 
 	}
 
