@@ -34,8 +34,7 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Book findById(Long Id) {
-		Book book = bookDao.findById(Id).get();
-		return null;
+		return bookDao.findById(Id).get();
 	}
 
 	@Override
@@ -73,6 +72,11 @@ public class BookServiceImpl implements BookService {
 		}
 
 		return listBookVo;
+	}
+
+	@Override
+	public void updateBookDetail(Book book) {
+		bookDao.save(null);
 	}
 
 }

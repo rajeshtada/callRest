@@ -1,7 +1,3 @@
-<html lang="en">
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
@@ -11,12 +7,12 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	crossorigin="anonymous"></script>
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
 <script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-	crossorigin="anonymous"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script	src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+
 <title>Login Form</title>
 
 
@@ -50,8 +46,10 @@
 						href="${pageContext.request.contextPath }/Book/AddBook">Add
 						Book</a>
 					<div class="dropdown-divider"></div>
-					<a href="${pageContext.request.contextPath }/Book/LibraryBook"
-						class="dropdown-item">Library Book</a>
+					<a href="${pageContext.request.contextPath }/Book/LibraryStock"
+						class="dropdown-item">Library Stock</a>
+					<a href="${pageContext.request.contextPath }/Book/searchBook"
+						class="dropdown-item">Search Book</a>
 				</div></li>
 
 			<li class="nav-item dropdown"><a
@@ -80,9 +78,10 @@
 		</a></li>
 	</div>
 </nav>
-<!-- 	<p style="background-image: url('/home/user91/Documents/Workspace/callRest/src/main/Resources/colored-pencils-isolated-with-rubber.jpg');height: 100%;width: 100%"> -->
-<Body
-	background="/WEB-INF/jsp/Resources/colored-pencils-isolated-with-rubber.jpg" />
+
+<!-- <Body background="/Resources/colored-pencils-isolated-with-rubber.jpg" /> -->
+	
+	
 	
 	
 	

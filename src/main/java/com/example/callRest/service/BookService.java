@@ -28,6 +28,8 @@ public interface BookService {
 	 * @author rajesh - Rajesh Tada
 	 */
 	List<BookDetailVo> findBookbyRequest(BookDetailVo bookRequestVo);
+
+	void updateBookDetail(Book book);
 	
 
 }
