@@ -19,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.callRest.control.BookController;
 import com.example.callRest.entity.Book;
 import com.example.callRest.service.BookService;
-import com.example.callRest.test.config.TestBeanConfig;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -34,7 +33,7 @@ import java.util.Map;
 
 @WebAppConfiguration
 @RunWith(MockitoJUnitRunner.class)
-@ContextConfiguration(classes = { TestBeanConfig.class })
+//@ContextConfiguration(classes = { TestBeanConfig.class })
 public class BookControllerTest {
 
 //	@Autowired

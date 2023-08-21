@@ -19,6 +19,14 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/UserRegistration.jsp" />
 	</definition>
+	
+	<definition name="errorPage" extends="loginLayout">
+		<put-attribute name="title" value="New User SignUp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/Errors.jsp" />
+	</definition>
+	
+	
 
 	<definition name="baseLayout"
 		template="/WEB-INF/tiles/templates/homeLayout.jsp">

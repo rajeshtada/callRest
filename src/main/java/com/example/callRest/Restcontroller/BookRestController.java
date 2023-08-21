@@ -5,6 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,10 +50,22 @@ public class BookRestController {
 			bookResponceVo.setStatus(400);
 		}
 
-		
-
 		return bookResponceVo;
-
 	}
 
+	@GetMapping("/testInt")
+	public @ResponseBody String searchBook(@RequestParam(name = "value") int value) {
+		
+		int testVal = value+10;
+		String result = "result = " + testVal ;
+		return result;
+	}
+	
+	@ExceptionHandler(value = NumberFormatException.class)
+	public ResponseEntity<Object> defaultNumberFormatException(NumberFormatException e) {
+
+		e.printStackTrace();
+		return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
+	}
+	
 }
