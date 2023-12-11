@@ -1,0 +1,1 @@
+<footer class="footer t-a-c"> © 2019 GetePay Admin Portal</footer>

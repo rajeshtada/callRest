@@ -3,10 +3,15 @@ package com.example.callRest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.Year;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SetCalenderDateTime {
 	
@@ -43,20 +48,15 @@ public class SetCalenderDateTime {
 		Date parse = sdf.parse(FinalDate);
 		System.out.println(parse);
 		
-		
-		
-		
 		int yearn = Calendar.getInstance().get(Calendar.YEAR);
 		int yearm = Year.now().getValue();
 		System.out.println(yearn + " ::"+yearm);
 		System.out.println(yearn + " ::"+yearm);
-
 		
 //		void java.util.Calendar.set(int year, int month, int date, int hourOfDay, int minute, int second)
 		Calendar cal = Calendar.getInstance();
 //		cal.set(1, yearm);
 //		Date time = cal.getTime();
-
 		
 //		Date d=new Date(1911,8,12);  	
 //		d.setSeconds(0);
@@ -65,8 +65,29 @@ public class SetCalenderDateTime {
 //		int i = Instant.now().get(ChronoField.YEAR_OF_ERA);
 //		System.out.println(i);
 		
-		
-		
+		try {
+
+			DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm a");
+			String dateStr = "08/09/2023 09:20 PM";
+//			LocalDateTime parse = LocalDateTime.parse(dateStr.trim(), dateTimeFormatter);
+//			System.out.println("parse LocalDateTime = "+parse);
+			
+//		    Map<Long, String> ampmStrings = Map.of(0L, "a", 1L, "p");
+		    final Map<Long, String> ampmStrings = new HashMap<>();
+		    ampmStrings.put(0L, "AM");
+		    ampmStrings.put(1L, "PM");
+		    DateTimeFormatter dateTimeFormatter2 = new DateTimeFormatterBuilder()
+		            .appendPattern("dd/MM/yyyy hh:mm ")
+		            .appendText(ChronoField.AMPM_OF_DAY, ampmStrings)
+		            .toFormatter();
+		    
+		    LocalDateTime time = LocalDateTime.parse(dateStr, dateTimeFormatter2);
+		    System.out.println("Parsed time: " + time);
+		    
+		    
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 

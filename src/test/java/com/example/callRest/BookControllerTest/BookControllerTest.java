@@ -2,7 +2,7 @@ package com.example.callRest.BookControllerTest;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+//import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import com.example.callRest.control.BookController;
 import com.example.callRest.entity.Book;
 import com.example.callRest.service.BookService;
 
-import static org.junit.Assert.assertNotNull;
+//import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 @WebAppConfiguration
-@RunWith(MockitoJUnitRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
 //@ContextConfiguration(classes = { TestBeanConfig.class })
 public class BookControllerTest {
 
@@ -67,7 +67,7 @@ public class BookControllerTest {
 //		Model model = (Model) new HashMap<String, Object>();
 		String result =  bookController.getALlList(model);
 //		verify(model, never()).addAttribute("msg","No data found");
-		assertNotNull(result);
+//		assertNotNull(result);
 		assertEquals(result, "LiberaryBook");
 //		assertTrue(result.getBody().size() > 0);
 //		LiberaryBook
