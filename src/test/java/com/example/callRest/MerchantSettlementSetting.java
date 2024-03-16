@@ -1,9 +1,40 @@
 package com.example.callRest;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MerchantSettlementSetting {
 
 	public static void main(String[] args) {
+
+		MerchantSettlementSetting mss = new MerchantSettlementSetting();
+//		mss.processSettlementCycle();
+		mss.getNextCycle();
+	}
+
+	public void getNextCycle() {
 		
+		String processor = "AU";
+		String currentCycle = "Part2";
+		
+		Map<String,String> settlementCycleMap = new HashMap<>();
+		
+		if ( processor.contains("ICICI")) {
+//			String totalCycle [] = {"Part1","Part2","Part3","Part4","Part5","Part6"};
+			settlementCycleMap = Map.of("Part1", "Part2", "Part2", "Part3", "Part3", "Part4", "Part4", "Part5", "Part5", "Part6", "Part6", "Part1");
+			
+		} else if (processor.contains("AU") || processor.contains("UTKARSH") ) {
+//			String totalCycle [] = {"Part1","Part2"};
+			settlementCycleMap = Map.of("Part1", "Part2", "Part2", "Part1");
+			
+		}
+			
+		String nextCycle = settlementCycleMap.get(currentCycle);
+		System.out.println(nextCycle);
+
+	}
+
+	public void processSettlementCycle() {
 		String processor = "ICICI";
 		int input = 4;
 		String merchantSS = "";
@@ -15,7 +46,7 @@ public class MerchantSettlementSetting {
 		Integer[] c1234 = { 1, 2, 3, 4 };
 		Integer[] c12345 = { 1, 2, 3, 4, 5 };
 		Integer[] c123456 = { 1, 2, 3, 4, 5, 6 };
-		Integer[] c139 = { 1, 3,9 };
+		Integer[] c139 = { 1, 3, 9 };
 		Integer[] merchantCycle = c139;
 
 		if (processor.equalsIgnoreCase("AUBANK")) {
@@ -60,6 +91,6 @@ public class MerchantSettlementSetting {
 		}
 
 		System.out.println(result);
-
 	}
+
 }

@@ -89,8 +89,41 @@ public class SetCalenderDateTime {
 			e.printStackTrace();
 		}
 		
+		System.out.println("=============================");
+		
+		
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+		Date parse2 = sdf2.parse(sdf2.format(new Date()));
+		System.out.println(" test" + parse2);
+		
+		
 	}
-
+	
+	
+	public void getJulianDate() {
+		
+		SimpleDateFormat yearFormat = new SimpleDateFormat("y");
+		SimpleDateFormat julianFormat = new SimpleDateFormat("DDD");
+		Date today = new Date();
+		String year = yearFormat.format(today);
+		year = year.substring(year.length() - 1);
+		String julianDate = julianFormat.format(today);
+		
+		System.out.println("test2" + julianDate);
+	}
+	
+	public void changeDate2() {
+//		LocalDateTime localDate = LocalDateTime.now();
+		String date = "2024-03-03 18:40:00.000000000";
+		 date = date.substring(0, 16);
+		 DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		 LocalDateTime localDate = LocalDateTime.parse(date,dtf1);
+		 
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+		String format = localDate.format(dtf);
+		
+		System.out.println(format);
+	}
 	
 	
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" monitorInterval="30">
+	<Appenders>
+
+		<RollingFile name="roll-by-time-and-size"
+			fileName="/media/shared/callRest/callRest.log"
+			filePattern="/media/shared/callRest/callRest.%d{dd-MMM-yyyy}.%i.log"
+			ignoreExceptions="false">
+			<PatternLayout>
+				<Pattern>%d{yyyy-MM-dd HH:mm:ss} %p %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy fileIndex="nomax">
+
+			</DefaultRolloverStrategy>
+		</RollingFile>
+
+	</Appenders>
+	<Loggers>
+		<AsyncRoot level="info" includeLocation="true">
+			<AppenderRef ref="roll-by-time-and-size" />
+		</AsyncRoot>
+	</Loggers>
+</Configuration>

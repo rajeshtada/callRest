@@ -17,6 +17,16 @@ public class StreamTest {
 //		stest.listAndMapObjectValue();
 		stest.listFilter();
 
+		
+//		 vpaStringList =  upiQrList.stream().map(x-> "'" + x.getVpa()+ "'").collect(Collectors.toList());
+//		Set<String> listRRN = txnIdListByDate.stream().map(x -> x.getUdf7()).collect(Collectors.toSet());
+//		Set<String> listVpa = txnIdListByDate.stream().map(x -> x.getUdf9()).collect(Collectors.toSet());
+//		Set<String> listUnique = txnIdListByDate.stream().map(x -> x.getUdf7() + x.getUdf9())
+//				.collect(Collectors.toSet());
+//		processorSettlementDataMap = txnIdListByDate.stream().collect(Collectors.toMap(x -> x.getUdf7() + x.getUdf9(),
+//				x -> new FileRowProcessorSettlementData(x.getAmt().toString(), todayDate)));
+//		Map<Long, TransactionLog> duplicateTxnMap = dulicateTxnLog.stream().collect(Collectors.toMap(x->x.getTransactionId(), x->x));
+		
 	}
 
 	public void groupingByMultipleFieldsExample() {

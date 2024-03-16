@@ -11,8 +11,7 @@ import com.example.callRest.entity.Book;
 
 public interface BookDao extends JpaRepository<Book, Long> ,JpaSpecificationExecutor<Book>{
 
-//	@Query(value = "SELECT * FROM book_data WHERE ?1 like '%?2%' ",
-//			nativeQuery = true)
+//	@Query(value = "SELECT * FROM book_data WHERE ?1 like '%?2%' ", nativeQuery = true)
 //	@Query("SELECT u FROM book_data u WHERE :searchDataField = :searchDataBy ")
 //	List<Book> findBookbyRequest( @Param("searchDataField")String searchDataField,  @Param("searchDataBy")String searchDataBy);
 	
