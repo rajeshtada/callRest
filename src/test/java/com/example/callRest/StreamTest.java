@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.function.Function;
 import java.util.Set;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 
 public class StreamTest {
 
@@ -15,7 +17,8 @@ public class StreamTest {
 		StreamTest stest = new StreamTest();
 //		stest.groupingByMultipleFieldsExample();
 //		stest.listAndMapObjectValue();
-		stest.listFilter();
+//		stest.listFilter();
+		stest.listToString();
 
 		
 //		 vpaStringList =  upiQrList.stream().map(x-> "'" + x.getVpa()+ "'").collect(Collectors.toList());
@@ -26,6 +29,20 @@ public class StreamTest {
 //		processorSettlementDataMap = txnIdListByDate.stream().collect(Collectors.toMap(x -> x.getUdf7() + x.getUdf9(),
 //				x -> new FileRowProcessorSettlementData(x.getAmt().toString(), todayDate)));
 //		Map<Long, TransactionLog> duplicateTxnMap = dulicateTxnLog.stream().collect(Collectors.toMap(x->x.getTransactionId(), x->x));
+
+//		 List<String> of string to List<Long>
+//		List<Long> longList = txnIdList.stream().map(Long::valueOf).collect(Collectors.toList());
+
+//		to array
+//		Long[] ids = longList.stream().toArray(Long[]::new);
+		
+//		List<object> to map
+//		merchantMap = findAllMerchant.stream().collect(Collectors.toMap(Merchant::getMid, Function.identity()));
+		
+		
+		
+		
+		
 		
 	}
 
@@ -57,8 +74,10 @@ public class StreamTest {
 		list.add(3);
 
 //		String s = list.stream().map(e -> e.toString()).reduce("", String::concat);
-		String s = list.stream().map(e -> "'" + e + "'").collect(Collectors.joining(","));
+		String s = list.stream().map(e -> "'" + e+1 + "'").collect(Collectors.joining(","));
+		 List<Integer> s2 = list.stream().map(e ->  e+1 ).collect(Collectors.toList());
 		System.out.println(s);
+		System.out.println(s2);
 	}
 
 	public void listFilter() {

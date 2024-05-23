@@ -1,6 +1,9 @@
 package com.example.callRest;
 
 import java.lang.instrument.Instrumentation;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -37,12 +40,34 @@ public class StringTest {
 //		VosTest fromJson = gson.fromJson(json, VosTest.class);
 //		System.out.println(fromJson);
 
-		String jsonString = "{\"response\": [\"test1\", \"test2\"]}";
-
-		Gson gson = new Gson();
+//		String jsonString = "{\"response\": [\"test1\", \"test2\"]}";
+//		Gson gson = new Gson();
+//		MyResponse myResponse = gson.fromJson(jsonString, MyResponse.class);
+//		System.out.println(myResponse);
 		
-		 MyResponse myResponse = gson.fromJson(jsonString, MyResponse.class);
-		 System.out.println(myResponse);
+		
+//		String vpa = "ici";
+//		if(vpa!= null && !vpa.equals("") && !(vpa.length()>5)) {
+//			System.out.println("Error");
+//		} else { 
+//			System.out.println("Code running");
+//		}
+		
+//		String rollback = "";
+//		String rollback2 = "true";
+//		
+//		if ((rollback == null || !rollback.equalsIgnoreCase("true")) && !rollback2.equalsIgnoreCase("true")) {
+//			System.out.println("Code running");
+//		}
+		
+//		String s11 = "upi -tcc 1212";
+////		String[] splitted = s11.split("[\\s\\-]|\\s|\\-");
+//		String[] splitted = s11.split("[\\s\\-]");
+//		for (String string : splitted) {
+//			System.out.println(string);
+//		}
+		
+		
 	}
 
 }
