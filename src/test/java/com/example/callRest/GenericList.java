@@ -11,7 +11,7 @@ public class GenericList<T> implements Iterable<T>{
 
 	public static void main(String[] args) {
 
-		for (int i = 0; i < 25; i++) {
+		for (int i = 0; i < 35; i++) {
 
 			GenericList.listTimeTest();
 //			GenericList.encoded();
@@ -20,11 +20,11 @@ public class GenericList<T> implements Iterable<T>{
 
 	public static void listTimeTest() {
 
-		List<Vos> lst = new ArrayList<>(1000000);
+		List<Vos> lst = new ArrayList<>(9000000);
 		Vos vos ;
 		LocalDateTime ldt = LocalDateTime.now();
 //		System.out.println(" Start Time = " + ldt);
-		for (int i = 0; i < 1000000; i++) {
+		for (int i = 0; i < 9000000; i++) {
 			vos = new Vos();
 			vos.setId(i);
 			vos.setName(i+"ram");

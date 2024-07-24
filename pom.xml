@@ -35,7 +35,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
-
+		 <dependency> 
+             <groupId>com.lmax</groupId> 
+             <artifactId>disruptor</artifactId> 
+                     <version>3.3.7</version> 
+        </dependency> 
+		 <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>5.3.27</version>
+    	</dependency>
+    
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
