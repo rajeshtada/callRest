@@ -111,15 +111,15 @@ public class BookController {
 
 	@GetMapping("searchBook")
 	public String searchBook(Model model) {
-//		List<Book> books= new ArrayList<Book>();
-//		try {
-//			books = bookService.findAllBook();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			model.addAttribute("msg","No data found");
-//		}
-//		
-//		model.addAttribute("books",books);
+		List<Book> books= new ArrayList<Book>();
+		try {
+			books = bookService.findAllBook();
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("msg","No data found");
+		}
+		
+		model.addAttribute("books",books);
 		return "searchBook";
 
 	}

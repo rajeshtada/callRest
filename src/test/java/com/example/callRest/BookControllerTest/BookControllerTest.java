@@ -68,7 +68,7 @@ public class BookControllerTest {
 		String result =  bookController.getALlList(model);
 //		verify(model, never()).addAttribute("msg","No data found");
 //		assertNotNull(result);
-		assertEquals(result, "LiberaryBook");
+		assertEquals(result, "libraryStock");
 //		assertTrue(result.getBody().size() > 0);
 //		LiberaryBook
 	}

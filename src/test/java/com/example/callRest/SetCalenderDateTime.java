@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.Year;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
@@ -97,9 +98,28 @@ public class SetCalenderDateTime {
 		System.out.println(" test" + parse2);
 		
 		
+		
+		
+		
 	}
 	
-	
+	public void printFromCalender() {
+		int lastTwoDigits = Calendar.getInstance().get(Calendar.YEAR) % 100;
+		int i = Calendar.getInstance().get(Calendar.MONTH);
+		System.out.println(lastTwoDigits);
+		System.out.println(i);
+		
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.MONTH, 6);
+		
+//		LocalDateTime.ofInstant(cal.getInstance(), null);	
+		LocalDateTime ldt = LocalDateTime.ofInstant(cal.toInstant(), ZoneId.systemDefault());
+		
+//		LocalDateTime ldt = LocalDateTime.now();
+	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM_yy");
+	    String format = dtf.format(ldt);
+	    System.out.println(format);
+	}
 	public void getJulianDate() {
 		
 		SimpleDateFormat yearFormat = new SimpleDateFormat("y");

@@ -1,14 +1,17 @@
 package com.example.callRest;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.function.Function;
 import java.util.Set;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 
 
 public class StreamTest {
@@ -20,7 +23,6 @@ public class StreamTest {
 //		stest.listFilter();
 		stest.listToString();
 
-		
 //		 vpaStringList =  upiQrList.stream().map(x-> "'" + x.getVpa()+ "'").collect(Collectors.toList());
 //		Set<String> listRRN = txnIdListByDate.stream().map(x -> x.getUdf7()).collect(Collectors.toSet());
 //		Set<String> listVpa = txnIdListByDate.stream().map(x -> x.getUdf9()).collect(Collectors.toSet());
@@ -35,15 +37,80 @@ public class StreamTest {
 
 //		to array
 //		Long[] ids = longList.stream().toArray(Long[]::new);
-		
+
 //		List<object> to map
 //		merchantMap = findAllMerchant.stream().collect(Collectors.toMap(Merchant::getMid, Function.identity()));
+
+//		String dynamicQrTxnIdString = model.getDynamicQrTxnIdRrnMap().keySet().stream().map(e -> String.valueOf(e)).collect(Collectors.joining(","));
+//		deactivateTxnList.stream().map(e -> e.getTransactionId()).forEach(x -> releaseTxnIdList.add(x));;
+
 		
+//		deactivateTxnList.stream().map(e -> e.getTransactionId()).forEach(x -> releaseTxnIdList.add(x));
 		
+	}
+	
+	public void forEachTest() {
+		Map<String , String> map = new HashMap<>();
+		Set<String> keySet = map.keySet();
+		System.out.println(keySet.size());
+		StringBuffer txnIdStringBuffer = null;
 		
+		Set<String> virtualVpaSet = new HashSet<>();
+		Map<String, String> ezpayIdVpaMap = new HashMap<>();
 		
+		ezpayIdVpaMap.put("1", "gvi.");
+		ezpayIdVpaMap.put("2", "GETgvi");
+		ezpayIdVpaMap.put("3", "ram");
 		
+		System.out.println(ezpayIdVpaMap);
 		
+		ezpayIdVpaMap.entrySet().stream().filter(x -> x.getValue().contains("gvi.") 
+				|| x.getValue().contains("GETgvi"))
+				.forEach(x -> virtualVpaSet.add(x.getValue()));
+		
+		System.out.println(virtualVpaSet);
+	}
+	
+	public void mapToSetWithFilter() {
+		Set<String> virtualVpaSet = new HashSet<>();
+		virtualVpaSet.add("hello.gvi");
+		System.out.println(virtualVpaSet);
+		Map<String, String> ezpayIdVpaMap = new HashMap<>();
+		ezpayIdVpaMap.put("1", "gvi.1");
+		ezpayIdVpaMap.put("2", null);
+		ezpayIdVpaMap.put("3", "notandy");
+		
+//		ezpayIdVpaMap.entrySet().stream().filter(x-> x.getValue().contains(Utils.VIRTUAL_VPA_HANDLER)).forEach(x-> virtualVpaSet.add(x.getValue()));
+		Set<String> collect = ezpayIdVpaMap.entrySet().stream().filter(x-> x.getValue() != null && x.getValue().contains("gvi."))
+				.map(x->x.getValue()).collect(Collectors.toSet());
+		
+		virtualVpaSet.addAll(collect);
+		System.out.println(virtualVpaSet);
+	}
+	
+	public void MapValueToSetCollectByForEach() {
+		Map<String,String> ezpayIdVpaMap = new HashMap<>();
+		ezpayIdVpaMap.put("1", "hello1");
+		ezpayIdVpaMap.put("2", "gvi.");
+		ezpayIdVpaMap.put("3", "gvi.");
+		
+		List<String> list = new ArrayList<>();
+		list.add("gvi.");
+		list.add("gvi.1");
+		System.out.println(list);
+		Set<String> virtualVpaSet = new HashSet<>();
+		list.stream().map(x -> virtualVpaSet.add(x));
+//		list.stream().map(String -> virtualVpaSet.add(String));
+		 
+		 list.stream().filter(x -> x.contains("gvi.")).map(x -> String.valueOf(x)).forEach(x -> virtualVpaSet.add(x));
+		 System.out.println(virtualVpaSet);
+	}
+	
+	public void splitStreamTest() {
+		String midsString = "22556|2269";
+		String[] midArray = midsString.split("\\|");
+		List<Long> midList = Arrays.stream(midArray).map(x -> Long.valueOf(x)).collect(Collectors.toList());
+		System.out.println(midList);
 	}
 
 	public void groupingByMultipleFieldsExample() {
@@ -74,8 +141,8 @@ public class StreamTest {
 		list.add(3);
 
 //		String s = list.stream().map(e -> e.toString()).reduce("", String::concat);
-		String s = list.stream().map(e -> "'" + e+1 + "'").collect(Collectors.joining(","));
-		 List<Integer> s2 = list.stream().map(e ->  e+1 ).collect(Collectors.toList());
+		String s = list.stream().map(e -> "'" + e + 1 + "'").collect(Collectors.joining(","));
+		List<Integer> s2 = list.stream().map(e -> e + 1).collect(Collectors.toList());
 		System.out.println(s);
 		System.out.println(s2);
 	}

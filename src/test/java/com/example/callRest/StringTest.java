@@ -15,6 +15,11 @@ public class StringTest {
 
 	public static void main(String[] args) {
 
+		String name = "i , he,lo , test3";
+		name = name.replaceAll(",", "");
+		System.out.println("name = "+name);
+		
+		
 		String s1 = null;
 
 		Map<String, String> map = new HashMap<>();
