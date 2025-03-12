@@ -64,6 +64,11 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/TestHtmlPage.jsp" />
 	</definition>
+	<definition name="testDynamicJar" extends="baseLayout">
+		<put-attribute name="title" value="HomePage" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/TestDynamicJar.jsp" />
+	</definition>
 	<definition name="searchBook" extends="baseLayout">
 		<put-attribute name="title" value="HomePage" />
 		<put-attribute name="body"

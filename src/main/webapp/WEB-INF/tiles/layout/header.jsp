@@ -63,6 +63,8 @@
 							href="${pageContext.request.contextPath }/download/excelDownload">Test_Excel</a> --%>
 					<a class="dropdown-item"
 						href="${pageContext.request.contextPath }/download/testHtmlPage">Test_Html_Page</a>
+						<a class="dropdown-item"
+						href="${pageContext.request.contextPath }/test/testDynamicJar">Test_Dynamic_Page</a>
 				</div></li>
 
 		</ul>

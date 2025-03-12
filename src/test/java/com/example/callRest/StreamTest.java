@@ -22,38 +22,51 @@ public class StreamTest {
 //		stest.listAndMapObjectValue();
 //		stest.listFilter();
 		stest.listToString();
-
-//		 vpaStringList =  upiQrList.stream().map(x-> "'" + x.getVpa()+ "'").collect(Collectors.toList());
+//		stest.MapValueToSetCollectByForEach();
+		
+//		vpaStringList =  upiQrList.stream().map(x-> "'" + x.getVpa()+ "'").collect(Collectors.toList());
 //		Set<String> listRRN = txnIdListByDate.stream().map(x -> x.getUdf7()).collect(Collectors.toSet());
 //		Set<String> listVpa = txnIdListByDate.stream().map(x -> x.getUdf9()).collect(Collectors.toSet());
-//		Set<String> listUnique = txnIdListByDate.stream().map(x -> x.getUdf7() + x.getUdf9())
-//				.collect(Collectors.toSet());
-//		processorSettlementDataMap = txnIdListByDate.stream().collect(Collectors.toMap(x -> x.getUdf7() + x.getUdf9(),
-//				x -> new FileRowProcessorSettlementData(x.getAmt().toString(), todayDate)));
+//		Set<String> listUnique = txnIdListByDate.stream().map(x -> x.getUdf7() + x.getUdf9()).collect(Collectors.toSet());
+		
+
+		
+//		List<object> to map
 //		Map<Long, TransactionLog> duplicateTxnMap = dulicateTxnLog.stream().collect(Collectors.toMap(x->x.getTransactionId(), x->x));
+//		merchantMap = findAllMerchant.stream().collect(Collectors.toMap(Merchant::getMid, Function.identity()));
+//		processorSettlementDataMap = txnIdListByDate.stream().collect(Collectors.toMap(x -> x.getUdf7() + x.getUdf9(),
+//		x -> new FileRowProcessorSettlementData(x.getAmt().toString(), todayDate)));
+		
+		
+//		List<String> of string to List<Long>
+//		List<Long> longList = txnIdList.stream().map(Long::valueOf).collect(Collectors.toList());		
+		
 
-//		 List<String> of string to List<Long>
-//		List<Long> longList = txnIdList.stream().map(Long::valueOf).collect(Collectors.toList());
-
-//		to array
+//		To array
 //		Long[] ids = longList.stream().toArray(Long[]::new);
 
-//		List<object> to map
-//		merchantMap = findAllMerchant.stream().collect(Collectors.toMap(Merchant::getMid, Function.identity()));
 
 //		String dynamicQrTxnIdString = model.getDynamicQrTxnIdRrnMap().keySet().stream().map(e -> String.valueOf(e)).collect(Collectors.joining(","));
-//		deactivateTxnList.stream().map(e -> e.getTransactionId()).forEach(x -> releaseTxnIdList.add(x));;
+//		String dynamicQrTxnIdString = model.getDynamicQrTxnIdRrnMap().keySet().stream().map(e -> String.valueOf(e)).collect(Collectors.joining(","));
 
 		
 //		deactivateTxnList.stream().map(e -> e.getTransactionId()).forEach(x -> releaseTxnIdList.add(x));
+//		deactivateTxnList.stream().map(e -> e.getTransactionId()).forEach(x -> releaseTxnIdList.add(x));
 		
+		// operation during stream
+//		List<Fruit> newList = fruits.stream().peek(f -> f.setName(f.getName() + "s")).collect(Collectors.toList());
+//		List<Employee> l2=list.stream().map(t->{
+//            t.setAge(t.getAge()*2);
+//            return t;
+//        }).collect(Collectors.toList());
+		
+
 	}
 	
 	public void forEachTest() {
 		Map<String , String> map = new HashMap<>();
 		Set<String> keySet = map.keySet();
 		System.out.println(keySet.size());
-		StringBuffer txnIdStringBuffer = null;
 		
 		Set<String> virtualVpaSet = new HashSet<>();
 		Map<String, String> ezpayIdVpaMap = new HashMap<>();
@@ -65,9 +78,7 @@ public class StreamTest {
 		System.out.println(ezpayIdVpaMap);
 		
 		ezpayIdVpaMap.entrySet().stream().filter(x -> x.getValue().contains("gvi.") 
-				|| x.getValue().contains("GETgvi"))
-				.forEach(x -> virtualVpaSet.add(x.getValue()));
-		
+				|| x.getValue().contains("GETgvi")).forEach(x -> virtualVpaSet.add(x.getValue()));
 		System.out.println(virtualVpaSet);
 	}
 	
@@ -100,8 +111,7 @@ public class StreamTest {
 		System.out.println(list);
 		Set<String> virtualVpaSet = new HashSet<>();
 		list.stream().map(x -> virtualVpaSet.add(x));
-//		list.stream().map(String -> virtualVpaSet.add(String));
-		 
+		 System.out.println(virtualVpaSet);
 		 list.stream().filter(x -> x.contains("gvi.")).map(x -> String.valueOf(x)).forEach(x -> virtualVpaSet.add(x));
 		 System.out.println(virtualVpaSet);
 	}
@@ -152,10 +162,10 @@ public class StreamTest {
 		List<Employee> listP = new ArrayList<>();
 		Employee process;
 
-//		for (int i = 0; i < 3; i++) {
-//			process = new Employee(i, "Bank = " + i, null, null, 0L);
-//			listP.add(process);
-//		}
+		for (int i = 0; i < 3; i++) {
+			process = new Employee(i, "Bank = " + i, null, null, 0L);
+			listP.add(process);
+		}
 		System.out.println(listP);
 		List<Employee> collect = listP.stream().filter(x -> x.getId() == 2).collect(Collectors.toList());
 		System.out.println(collect);

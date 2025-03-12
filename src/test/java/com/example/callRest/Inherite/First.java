@@ -2,6 +2,9 @@ package com.example.callRest.Inherite;
 
 public class First implements ShapeInterface {
 
+	{
+		System.out.println("static call");
+	}
 	public First() {
 	}
 

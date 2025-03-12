@@ -102,7 +102,16 @@ public class SetCalenderDateTime {
 		
 		
 	}
-	
+	public void getCurrentFyYear() {
+	    int year = Calendar.getInstance().get(Calendar.YEAR);
+	    int month = Calendar.getInstance().get(Calendar.MONTH) +1;
+	    System.out.println("Financial month : " + month);
+	    if (month < 3) {
+	        System.out.println("Financial Year : " + (year - 1) + "-" + year);
+	    } else {
+	        System.out.println("Financial Year : " + year + "-" + (year + 1));
+	    }
+	}
 	public void printFromCalender() {
 		int lastTwoDigits = Calendar.getInstance().get(Calendar.YEAR) % 100;
 		int i = Calendar.getInstance().get(Calendar.MONTH);

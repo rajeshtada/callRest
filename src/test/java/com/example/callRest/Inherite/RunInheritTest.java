@@ -5,6 +5,7 @@ public class RunInheritTest {
 	public static void main(String[] args) {
 		
 		First f = new First();
+		First f12 = new First();
 		Second s = new Second();
 		First f1 = new Second();
 //		Second s1 = new First();
@@ -18,7 +19,7 @@ public class RunInheritTest {
 		
 	}
 	
-	public static void runTest(ShapeInterface si) {
+	public static void runTest(First si) {
 //		si.setRef("hello");
 //		si.printRef();
 		String circle = si.getCircle(7);
