@@ -21,9 +21,9 @@ public class StreamTest {
 //		stest.groupingByMultipleFieldsExample();
 //		stest.listAndMapObjectValue();
 //		stest.listFilter();
-		stest.listToString();
+//		stest.listToString();
 //		stest.MapValueToSetCollectByForEach();
-		
+		stest.removeIfTest();
 //		vpaStringList =  upiQrList.stream().map(x-> "'" + x.getVpa()+ "'").collect(Collectors.toList());
 //		Set<String> listRRN = txnIdListByDate.stream().map(x -> x.getUdf7()).collect(Collectors.toSet());
 //		Set<String> listVpa = txnIdListByDate.stream().map(x -> x.getUdf9()).collect(Collectors.toSet());
@@ -62,6 +62,20 @@ public class StreamTest {
 		
 
 	}
+	
+	public void removeIfTest() {
+		
+		 ArrayList<Integer> numbers = new ArrayList<Integer>();
+		    numbers.add(5);
+		    numbers.add(9);
+		    numbers.add(8);
+		    numbers.add(6);
+		    numbers.add(1);
+		    System.out.println(numbers);
+		    numbers.removeIf( n -> n % 2 == 0 );
+		    System.out.println(numbers);
+	}
+	
 	
 	public void forEachTest() {
 		Map<String , String> map = new HashMap<>();
@@ -191,6 +205,7 @@ public class StreamTest {
 		employeesList.add(new Employee(105, "Gagy", "Software Engineer", "Male", 15_00_000));
 		employeesList.add(new Employee(106, "Murekan", "Software Engineer", "Male", 15_00_000));
 		employeesList.add(new Employee(107, "Gagy", "Software Engineer", "Male", 15_00_000));
+//		employeesList.removeIf(null)
 		return employeesList;
 	}
 }
