@@ -27,5 +27,17 @@ public class BookSpecification implements Specification<Book> {
 		return equal;
 	}
 
+	@Override
+	public Specification<Book> or(Specification<Book> other) {
+		// TODO Auto-generated method stub
+		return Specification.super.or(other);
+	}
+
+	@Override
+	public Specification<Book> and(Specification<Book> other) {
+		// TODO Auto-generated method stub
+		return Specification.super.and(other);
+	}
+
 	
 }
