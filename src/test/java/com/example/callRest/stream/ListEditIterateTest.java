@@ -1,4 +1,4 @@
-package com.example.callRest;
+package com.example.callRest.stream;
 
 import java.util.ArrayList;
 import java.util.List;

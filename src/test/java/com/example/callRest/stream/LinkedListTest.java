@@ -1,4 +1,4 @@
-package com.example.callRest;
+package com.example.callRest.stream;
 
 public class LinkedListTest {
 
