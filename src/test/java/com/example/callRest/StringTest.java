@@ -8,34 +8,33 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 import com.google.gson.Gson;
 
 public class StringTest {
 
 	public static void main(String[] args) {
+		System.out.println("code running");
+		Scanner s = new Scanner(System.in);
+		String s1 = s.nextLine();
+		for (int i = 0; i < 50000000; i++) {
+//			String string = new String(i+"_");
+			String string = i+"_";
+		}
+		System.out.println("code end");
 
-		String name = "i , he,lo , test3";
-		name = name.replaceAll(",", "");
-		System.out.println("name = "+name);
-		
-		
-		String s1 = null;
-
-		Map<String, String> map = new HashMap<>();
-		System.out.println(s1);
-		map.put("a1", "a1");
-		map.put("b1", "b1");
+//		Map<String, String> map = new HashMap<>();
+//		map.put("a1", "a1");
+//		map.put("b1", "b1");
 //		map.forEach((k,v)-> keys = keys+" , " + k);
-
-		VosTest vo = new VosTest();
-		vo.setId(0L);
-		vo.setName("test");
-		vo.setDetails("testing");
-
 //		long objectSize = InstrumentationAgent.getObjectSize(map);
 //		System.out.println(objectSize);
 
+//		VosTest vo = new VosTest();
+//		vo.setId(0L);
+//		vo.setName("test");
+//		vo.setDetails("testing");
 //		Gson gson = new Gson();
 //		VosTest vo2 = new VosTest();
 ////	vo2.setDetails("test");
@@ -44,33 +43,12 @@ public class StringTest {
 //		String g1= "{\"name\":\"ok\",\"details\":\"test\"}";
 //		VosTest fromJson = gson.fromJson(json, VosTest.class);
 //		System.out.println(fromJson);
-
 //		String jsonString = "{\"response\": [\"test1\", \"test2\"]}";
 //		Gson gson = new Gson();
 //		MyResponse myResponse = gson.fromJson(jsonString, MyResponse.class);
 //		System.out.println(myResponse);
 		
 		
-//		String vpa = "ici";
-//		if(vpa!= null && !vpa.equals("") && !(vpa.length()>5)) {
-//			System.out.println("Error");
-//		} else { 
-//			System.out.println("Code running");
-//		}
-		
-//		String rollback = "";
-//		String rollback2 = "true";
-//		
-//		if ((rollback == null || !rollback.equalsIgnoreCase("true")) && !rollback2.equalsIgnoreCase("true")) {
-//			System.out.println("Code running");
-//		}
-		
-//		String s11 = "upi -tcc 1212";
-////		String[] splitted = s11.split("[\\s\\-]|\\s|\\-");
-//		String[] splitted = s11.split("[\\s\\-]");
-//		for (String string : splitted) {
-//			System.out.println(string);
-//		}
 		
 		
 	}

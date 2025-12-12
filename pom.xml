@@ -140,7 +140,13 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 		</dependency>
-
+		
+		<!-- JOL (Java Object Layout) – from OpenJDK. -->
+		<dependency>
+    		<groupId>org.openjdk.jol</groupId>
+    		<artifactId>jol-core</artifactId>
+    		<version>0.17</version>
+		</dependency>
 	</dependencies>
 
 
