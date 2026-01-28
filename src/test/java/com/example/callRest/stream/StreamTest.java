@@ -2,12 +2,15 @@ package com.example.callRest.stream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -37,6 +40,9 @@ public class StreamTest {
 //		processorSettlementDataMap = txnIdListByDate.stream().collect(Collectors.toMap(x -> x.getUdf7() + x.getUdf9(),
 //		x -> new FileRowProcessorSettlementData(x.getAmt().toString(), todayDate)));
 		
+//		Map<Character, List<Employee>> groupByAlphabet = empList.stream().collect(
+//			      Collectors.groupingBy(e -> new Character(e.getName().charAt(0))));
+
 		
 //		List<String> of string to List<Long>
 //		List<Long> longList = txnIdList.stream().map(Long::valueOf).collect(Collectors.toList());		
@@ -146,18 +152,29 @@ public class StreamTest {
 
 		Map<String, Map<String, List<Employee>>> collect = stream.collect(groupingBy);
 		System.out.println(collect);
+		
+		Map<String,List<Employee>> collect2 = employeesList.stream().collect(Collectors.groupingBy(Employee::getGender));
 	}
 
 	public void groupByMapping() {
 
-//		Map<City, Set<String>> namesByCity
-//		   = people.stream().collect(
-//		     groupingBy(Person::getCity,
-//		                mapping(Person::getLastName,
-//		                        toSet())));
+		List<Employee> employeesList = getEmpList();
+		
+		Map<String, Set<String>> namesByCity
+		   = employeesList.stream().collect(Collectors.groupingBy(Employee::getDesignation,Collectors.mapping(Employee::getGender,Collectors.toSet())));
 
 	}
+	
+	public void whenStreamGroupingAndReducing_thenGetMap() {
+		List<Employee> employeesList = getEmpList();
+	    Comparator<Employee> byNameLength = Comparator.comparing(Employee::getName);
+	    
+	    Map<Character, Optional<Employee>> longestNameByAlphabet = employeesList.stream().collect(
+	      Collectors.groupingBy(e -> new Character(e.getName().charAt(0)),
+	        Collectors.reducing(BinaryOperator.maxBy(byNameLength))));
 
+	}
+	
 	public void listToString() {
 		List<Integer> list = new ArrayList<>();
 		list.add(1);

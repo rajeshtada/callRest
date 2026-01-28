@@ -1,7 +1,11 @@
 package com.example.callRest.stream;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.apache.poi.hpsf.Array;
 
@@ -12,28 +16,22 @@ public class ListEditIterateTest {
 		List<Mode> strList = new ArrayList<>();
 		strList.add(new Mode(1L, "ram"));
 		strList.add(new Mode(2L, "hari"));
-
+		strList.add(new Mode(5L, "hari"));
+		
 		System.out.println(strList.toString());
 
+//		for (Mode mode : strList) {
+//			mode.setId(11L);
+//		}
+//		System.out.println(strList.toString());
+		
 		List<Mode> newMode = new ArrayList<>();
-		for (Mode mode : strList) {
-			mode.setId(11L);
-//			newMode.add(mode);
-//			mode.setId(2555L);
-
-		}
-		System.out.println(strList.toString());
 		for (Mode mode : newMode) {
 			System.out.println(mode);
 		}
 
-		List<String> str = new ArrayList<>();
-		str.add("0123456");
-		for (String data : str) {
-			String concat = data.concat("hello");
-		}
-		System.out.println(str);
-
+		Mode mode = strList.stream().sorted(Comparator.comparing(Mode::getId)).skip(1).findFirst().get();
+		Map<Long, Mode> merchantMap = strList.stream().collect(Collectors.toMap(Mode::getId, Function.identity()));
 	}
 
 }

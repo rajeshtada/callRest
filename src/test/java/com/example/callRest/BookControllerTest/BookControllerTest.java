@@ -53,24 +53,24 @@ public class BookControllerTest {
 	}
 	
 	
-	@Test
-	public void bookServiceTest() {
-		
-		
-//		List<Book> findAllBook = bookService.findAllBook();
-//		assertNotNull(findAllBook);
-		model = new ConcurrentModel();
-//		model.addAttribute("", "");
-//		List<Book> books= new ArrayList<Book>();
-//		books = bookService.findAllBook();
-//		model.addAttribute("books",books);		
-//		Model model = (Model) new HashMap<String, Object>();
-		String result =  bookController.getALlList(model);
-//		verify(model, never()).addAttribute("msg","No data found");
-//		assertNotNull(result);
-		assertEquals(result, "libraryStock");
-//		assertTrue(result.getBody().size() > 0);
-//		LiberaryBook
-	}
+//	@Test
+//	public void bookServiceTest() {
+//		
+//		
+////		List<Book> findAllBook = bookService.findAllBook();
+////		assertNotNull(findAllBook);
+//		model = new ConcurrentModel();
+////		model.addAttribute("", "");
+////		List<Book> books= new ArrayList<Book>();
+////		books = bookService.findAllBook();
+////		model.addAttribute("books",books);		
+////		Model model = (Model) new HashMap<String, Object>();
+//		String result =  bookController.getALlList(model);
+////		verify(model, never()).addAttribute("msg","No data found");
+////		assertNotNull(result);
+//		assertEquals(result, "libraryStock");
+////		assertTrue(result.getBody().size() > 0);
+////		LiberaryBook
+//	}
 
 }

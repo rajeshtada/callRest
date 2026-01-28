@@ -13,13 +13,15 @@ public class RunInheritTest {
 //		runTest(f);
 		runTest(s);
 		
-//		ShapeInterface si =  new Second();
-//		ShapeInterface si =  new First();
-//		runTest(si);
+		ShapeInterface si =  new Second();
+		ShapeInterface si2 =  new First();
+		String shape = ShapeInterface.shape;
+		
+		runTest(si2);
 		
 	}
 	
-	public static void runTest(First si) {
+	public static void runTest(ShapeInterface si) {
 //		si.setRef("hello");
 //		si.printRef();
 		String circle = si.getCircle(7);

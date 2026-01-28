@@ -25,4 +25,29 @@ public class ListChunkingExample {
         System.out.println("First chunk: " + partitioned.get(0).subList(0, 5)); // print first 5
         System.out.println("Last chunk size: " + partitioned.get(partitioned.size() - 1).size());
     }
+    
+    public static void chunking2() {
+    	
+    	String txnIdsString = "";
+    	int BATCH_SIZE = 5;
+    	String[] txnIdArray = txnIdsString.split(",");
+    	
+
+    	        LinkedHashMap<Integer,List<String>> collect = IntStream.range(0, txnIdArray.length)
+    	                 .boxed().collect(Collectors.groupingBy(i -> i / BATCH_SIZE,
+    	                     LinkedHashMap::new,   // preserve order
+    	                     Collectors.mapping(i -> txnIdArray[i], Collectors.toList())
+    	                 ));
+    	        collect.values().stream().map(list -> String.join(",", list)).collect(Collectors.toList());
+    	
+    }
+    
+    
+    
+    
+    
+    
 }
+
+
+
