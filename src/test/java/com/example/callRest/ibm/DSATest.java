@@ -17,7 +17,8 @@ public class DSATest {
 //		maxSumSubarray();
 //		maxSumSubarray2();
 //		SumSubarrayIsZero();
-		sumSubarrayIsZero();
+//		sumSubarrayIsZero();
+		longestSubstringWithoutRepeatingCharacters();
 	}
 
 	public static void maxSumSubarray2() {
@@ -94,22 +95,52 @@ public class DSATest {
 
 	}
 
-	public static void longestSubstring() {
+	public static void longestSubstringWithoutRepeatingCharacters() {
 
-		String s = "skwiss";
+		String s = "skswias";
 		int l = 0, max = 0;
 		Map<Character, Integer> map = new HashMap<>();
 
 		for (int r = 0; r < s.length(); r++) {
-			if (map.containsKey(s.charAt(r)))
+			if (map.containsKey(s.charAt(r))) {
 				l = Math.max(l, map.get(s.charAt(r)) + 1);
-
+			}
 			map.put(s.charAt(r), r);
 			max = Math.max(max, r - l + 1);
 		}
+		System.out.println("max : "+ max);
 
 	}
+	
 
+	
+
+	 public static void findLongestSubstringWithKDistinctCharacters() {
+		  	String str = "araaci";
+	        int distinct = 2;
+	        // map to store the characters in the string and their last occurrence index
+	        Map<Character, Integer> charMap = new HashMap<>();
+	        int pointer = 0;
+	        int maxLength = 0;
+	        for (int i = 0; i < str.length(); i++) {
+	            char currentChar = str.charAt(i);
+	            // if the map has k distinct characters and the current character is not in the map
+	            if (charMap.size() == distinct && !charMap.containsKey(currentChar)) {
+	                // find the smallest index in the map
+	                Map.Entry<Character, Integer> localMap = charMap.entrySet().stream().min(Map.Entry.comparingByValue()).get();
+	                // move the pointer to the next index of the smallest index
+	                pointer = Math.max(pointer,  localMap.getValue() + 1);
+	                // remove the smallest index from the map
+	                charMap.remove(localMap.getKey());
+	            }
+	            // for each character, store the index of its last occurrence
+	            charMap.put(currentChar, i);
+	            // calculate the length of the current substring
+	            maxLength = Math.max(maxLength, i - pointer + 1);
+	        }
+	        System.out.println("maxLength : "+ maxLength);
+	    }
+	 
 	public static void sumSubarrayIsZero() {
 	    int[] arr = { 2,3,-1,1,-3,5 };
 
