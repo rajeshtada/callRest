@@ -1,6 +1,8 @@
 package com.example.callRest.json;
 
 
+import java.util.HashMap;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,6 +24,12 @@ public class DecodeJsonString {
 //		encJsonItem.put("transactionId", txnId);
 //		encJson.put("data", encJsonItem);
 //		System.out.println("encJson : "+encJson);
+		
+		
+		String hashMapString = "{key1={subkey1=value1, subkey2=value2}, key2=value3}";
+		String s2 = "{\"chnl\":\"FTK\",\"corpCode\":\"GTP\",\"beneinsert\":{\"apiVersion\":\"1.0\",\"beneCode\":\"FTK1600851\"}}";
+		HashMap newHashMap = gson.fromJson(s2, HashMap.class);
+		System.out.println(newHashMap);
 		
 	}
 }

@@ -27,6 +27,7 @@ public class StreamTest {
 //		stest.listToString();
 //		stest.MapValueToSetCollectByForEach();
 		stest.removeIfTest();
+		peekMethodTest();
 //		vpaStringList =  upiQrList.stream().map(x-> "'" + x.getVpa()+ "'").collect(Collectors.toList());
 //		Set<String> listRRN = txnIdListByDate.stream().map(x -> x.getUdf7()).collect(Collectors.toSet());
 //		Set<String> listVpa = txnIdListByDate.stream().map(x -> x.getUdf9()).collect(Collectors.toSet());
@@ -69,6 +70,34 @@ public class StreamTest {
 
 	}
 	
+	
+    /**
+     * out put is as below : 
+     * <blockquote><pre>
+     * Filtered value: three
+     * Mapped value: THREE
+     * Filtered value: four
+     * Mapped value: FOUR
+     * final return [THREE, FOUR]
+     * </pre></blockquote>
+     */
+	public static void peekMethodTest() {
+		
+		List<String> collect = Stream.of("one", "two", "three", "four")
+		        .filter(e -> e.length() > 3)
+		        .peek(e -> System.out.println("Filtered value: " + e))
+		        .map(String::toUpperCase)
+		        .peek(e -> System.out.println("Mapped value: " + e))
+		        .collect(Collectors.toList());
+				System.out.println(collect);
+
+				// out put 
+//				Filtered value: three
+//				Mapped value: THREE
+//				Filtered value: four
+//				Mapped value: FOUR
+//				[THREE, FOUR]
+	}
 	public void removeIfTest() {
 		
 		 ArrayList<Integer> numbers = new ArrayList<Integer>();
